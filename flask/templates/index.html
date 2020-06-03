@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Project 1</title>
+<style type="text/css">
+	button { background-color:lightgreen; background-size:35px;font-size: 35px;font-style: bold}
+	label {font-size: 22px; font-style: bold ; background-color:white}
+	select {font-size: 20px;font-style: bold}
+	body {background-image: url(https://vivaldi.com/wp-content/uploads/Quickly-search-for-information-online.png); }
+	
+</style>
+</head>
+
+<body>
+	<br>
+	<h1 style="font-size:50px;font-style: bold,italic;color: white;color:orange">
+		<center>ML Project on Phishing Website Detection</center></h1>
+	<br><br><br><br>
+	<h1 style="color: red">Enter the Values</h1>
+    <form action="{{ url_for('y_predict')}}"method="post">
+    	
+    	<table>
+    <tr><td><label>1.IP having IP Address</label></td>
+    	<td><select name="ipadd" id="ipadd">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td>
+    	<td><label>2.URL Length</label></td><td>
+    	<select name="urllen" id="urllen">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td><td>
+<label>3.Shortening Services</label></td><td>
+    	<select name="sserv" id="sserv">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select>    </td>	
+   <td> 	<label>4.Having @ symbol</label></td><td>
+    	<select name="at" id="at">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td><td>
+    	<label>5. Is // Redirecting</label></td><td>
+    	<select name="redict" id="redict">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td>
+	<td>	<label>6.Has Prefix / Suffix </label></td><td>
+    	<select name="pre" id="pre">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option></select>
+    	 </td></tr>
+   <tr><td>	<label>7.Having Sub-Domain</label></td><td>
+    	<select name="subd" id="subd">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td>
+   <td>	<label>8.SSL Final State</label></td><td>
+    	<select name="ssl" id="ssl">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td><td>
+		<label>9.Domain registration length</label></td><td>
+    	<select name="dlen" id="dlen">
+    		<option value="-1">-1</option>
+    		<option value="1">1</option></select></td>
+    <td>	<label>10.Favicon</label></td><td>
+    	<select name="favicon" id="favicon">
+    		<option value="-1">-1</option>
+    		<option value="1">1</option>
+    	 </select></td>
+   <td> 	<label>11.Port</label></td><td>
+    	<select name="port" id="port">
+    		<option value="-1">-1</option>
+    		<option value="1">1</option>
+    	 </select></td>
+	<td>	<label>12.HTTP Token</label></td><td>
+    	<select name="token" id="token">
+    		<option value="-1">-1</option>
+    		<option value="1">1</option><br></select></td></tr>
+   <tr><td> 	 <label>13. Request URL</label></td><td>
+    	<select name="requrl" id="requrl">
+    		<option value="-1">-1</option>
+    		<option value="1">1</option>
+    	 </select></td>
+    <td>	<label>14.URL of Anchor</label></td><td>
+    	<select name="urlan" id="urlan">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td>
+	<td>	<label>15.Links in Tags</label></td><td>
+    	<select name="lintag" id="lintag">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option></select></td>
+    <td>	<label>16.SFH</label></td><td>
+    	<select name="sfh" id="sfh">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td>
+    <td>	<label>17.Submitting to email</label></td><td>
+    	<select name="email" id="email">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td>
+	<td>	<label>18.Abnormal URL</label></td><td>
+    	<select name="aburl" id="aburl">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td></tr>
+  <tr><td>  	<label>19. Redirect</label></td><td>
+    	<select name="red" id="red">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td>
+   <td> 	<label>20.On mouseover</label></td><td>
+    	<select name="mouse" id="mouse">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td>
+	<td>	<label>21.RightClick</label></td><td>
+    	<select name="rclk" id="rclk">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td>
+   <td> 	<label>22. Pop Up Widnow</label></td><td>
+    	<select name="pop" id="pop">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td>
+    <td>	<label>23. Iframe</label></td><td>
+    	<select name="iframe" id="iframe">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td>
+	<td>	<label>24.Age of Domain</label></td><td>
+    	<select name="age" id="age">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td></tr>
+  <tr><td> 	 <label>25.DNS Record</label></td><td>
+    	<select name="dnsrec" id="dnsrec">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td>
+  <td> 	<label>26. Web Traffic </label></td><td>
+    	<select name="webt" id="webt">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td>
+   <td>	<label>27. Page Rank</label></td><td>
+    	<select name="pagerank" id="pagerank">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td>
+	<td> <label>28. Google Index</label></td><td>
+    	<select name="gindx" id="gindx">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td>
+   <td>	<label>29. Links pointing to page</label></td><td>
+    	<select name="pointpage" id="pointpage">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td>
+   <td> 	<label>30. Statistical report</label></td><td>
+    	<select name="stats" id="stats">
+    		<option value="-1">-1</option>
+    		<option value="0">0</option>
+    		<option value="1">1</option>
+    	 </select></td></tr>
+    	</table>
+    	<br>
+    	<br>
+        <center>       <button type="submit">Predict</button></center>
+    
+    </form><br>
+
+    <h1 style="font-size: 25px;color: green;"><center> {{ prediction_text }} </center></h1>
+
+</body>
+</html>
